@@ -7,7 +7,7 @@
         "motor_group": [
           {
             "sn": "ma",
-            "ln": "map axis",
+            "ln": "Mapped to Axis",
             "complexity": "user",
             "input_type": "multiple",
             "valid_regex": null,
@@ -40,6 +40,8 @@
             "complexity": "user",
             "input_type": "float",
             "valid_regex": "^[0-9].{0,5}",
+			"show_units": "true",
+			"postscript": "/rev",
             "hint": "TR needs to be set to the distance the mapped axis will move for one revolution of the motor. - e.g. if motor 1 is mapped to the X axis, then $1tr applies to the Xaxis. If the machine is in mm mode (G21) the TR value for XYZ axes should be entered in mm. If in inches mode (G20) XYZ should be entered in inches. ABC axes are always entered in degrees. ",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1tr---travel-per-revolution",
             "supported_platforms": [
@@ -51,7 +53,7 @@
           },
           {
             "sn": "mi",
-            "ln": "micro steps",
+            "ln": "Micro Steps",
             "complexity": "user",
             "input_type": "multiple",
             "valid_regex": "",
@@ -80,7 +82,7 @@
           },
           {
             "sn": "po",
-            "ln": "motor polarity",
+            "ln": "Polarity",
             "complexity": "user",
             "input_type": "multiple",
             "valid_regex": "",
@@ -103,7 +105,7 @@
           },
           {
             "sn": "pm",
-            "ln": "power management",
+            "ln": "Power Management",
             "complexity": "user",
             "input_type": "multiple",
             "valid_regex": "",
@@ -136,6 +138,7 @@
             "complexity": "user",
             "input_type": "decimal",
             "valid_regex": "",
+			"postscript": "deg/step",
             "hint": "Motor parameter indicating the angle traveled per whole step. Typical setting is $1sa=1.8 for 1.8 degrees per step (200 steps per revolution)",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#1sa---step-angle-for-the-motor",
             "supported_platforms": [
@@ -192,10 +195,12 @@
           },
           {
             "sn": "vm",
-            "ln": "Velocity Mode",
+            "ln": "Velocity Max",
             "complexity": "user",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
+			"postscript": "/min",
             "hint": "Sets the maximum velocity the axis will move during a G0 move (traverse).",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xvm---velocity-maximum",
             "supported_platforms": [
@@ -207,10 +212,12 @@
           },
           {
             "sn": "fr",
-            "ln": "Feed Rate",
+            "ln": "Feedrate Max",
             "complexity": "user",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
+			"postscript": "/min",
             "hint": "Sets the maximum velocity the axis will move during a feed in a G1, G2, or G3 move.",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xfr---feed-rate-maximum",
             "supported_platforms": [
@@ -222,10 +229,11 @@
           },
           {
             "sn": "tn",
-            "ln": "Travel Minimum",
+            "ln": "Travel Min",
             "complexity": "user",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
             "hint": "Defines the minimum extent of travel in that axis.",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum",
             "supported_platforms": [
@@ -237,9 +245,10 @@
           },
           {
             "sn": "tm",
-            "ln": "Travel Maximum",
+            "ln": "Travel Max",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
             "hint": "Defines the maximum extent of travel in that axis.",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xtn-xtm---travel-minimum-travel-maximum",
             "supported_platforms": [
@@ -251,9 +260,11 @@
           },
           {
             "sn": "jm",
-            "ln": "Jerk Maximum",
+            "ln": "Max Jerk",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
+			"postscript": "/min^3",
             "hint": "Sets the maximum jerk value for that axis.",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjm---jerk-maximum",
             "supported_platforms": [
@@ -268,6 +279,8 @@
             "ln": "Jerk Homing",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
+			"postscript": "/min^3",
             "hint": "Sets the jerk value used for homing to stop movement when switches are hit or released",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjh---jerk-homing",
             "supported_platforms": [
@@ -282,6 +295,7 @@
             "ln": "Jerk Deviation",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
             "hint": "Sets the velocity reduction used during cornering through the junction of two lines",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#xjd---junction-deviation",
             "supported_platforms": [
@@ -293,10 +307,11 @@
           },
           {
             "sn": "ra",
-            "ln": "Radius Setting",
+            "ln": "Radius",
             "noteForMe":"Only a",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
             "hint": "The radius value is used by rotational axes only (A, B and C) to convert linear units to degrees when in radius mode.",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#ara---radius-value",
             "supported_platforms": [
@@ -308,7 +323,7 @@
           },
           {
             "sn": "sn",
-            "ln": "Minimum Switch Mode",
+            "ln": "Switch Mode Min",
             "complexity": "user",
             "input_type": "multiple",
             "valid_regex": "",
@@ -337,7 +352,7 @@
           },
           {
             "sn": "sx",
-            "ln": "Maximum Switch Mode",
+            "ln": "Switch Mode Max",
             "complexity": "user",
             "input_type": "multiple",
             "valid_regex": "",
@@ -369,6 +384,8 @@
             "ln": "Search Velocity",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
+			"postscript": "/min",
             "hint": "Velocity for initially finding the homing switch. Set a moderate pace, e.g. 1/4 to 1/2 your max velocity",
             "url": "https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#homing-configuration-settings",
             "supported_platforms": [
@@ -383,6 +400,8 @@
             "ln": "Latch Velocity",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
+			"postscript": "/min",
             "hint": "Velocity for latching phase. Set this very low for best positional accuracy, e.g. 10 mm/min",
             "url": "https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#homing-configuration-settings",
             "supported_platforms": [
@@ -397,6 +416,7 @@
             "ln": "Latch Backoff",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
             "hint": "Distance to back off switch during latch and for clears. ",
             "url": "https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#homing-configuration-settings",
             "supported_platforms": [
@@ -411,6 +431,7 @@
             "ln": "Zero Backoff",
             "input_type": "decimal",
             "valid_regex": "",
+			"show_units": "true",
             "hint": "Distance to back off switch before setting machine coordinate system zero.",
             "url": "https://github.com/synthetos/TinyG/wiki/Homing-and-Limits-Description-and-Operation#homing-configuration-settings",
             "supported_platforms": [
@@ -429,6 +450,7 @@
             "ln": "Frequency",
             "input_type": "decimal",
             "valid_regex": "",
+			"postscript": "Hz",
             "hint": "In Hz",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#pwm-group-pulse-width-modulations",
             "supported_platforms": [
@@ -443,6 +465,7 @@
             "ln": "Clockwise Speed Low",
             "input_type": "decimal",
             "valid_regex": "",
+			"postscript": "RPM",
             "hint": "In RPM - arbitrary units unless you calibrate it, e.g. 1000",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#pwm-group-pulse-width-modulations",
             "supported_platforms": [
@@ -457,6 +480,7 @@
             "ln": "Clockwise Speed High",
             "input_type": "decimal",
             "valid_regex": "",
+			"postscript": "RPM",
             "hint": "In RPM - arbitrary units unless you calibrate it, e.g. 1000",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#pwm-group-pulse-width-modulations",
             "supported_platforms": [
@@ -499,6 +523,7 @@
             "ln": "Counter Clockwise Speed Low",
             "input_type": "decimal",
             "valid_regex": "",
+			"postscript": "RPM",
             "hint": "In RPM - arbitrary units unless you calibrate it, e.g. 1000",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#pwm-group-pulse-width-modulations",
             "supported_platforms": [
@@ -513,6 +538,7 @@
             "ln": "Counter Clockwise Speed High",
             "input_type": "decimal",
             "valid_regex": "",
+			"postscript": "RPM",
             "hint": "In RPM - arbitrary units unless you calibrate it, e.g. 1000",
             "url": "https://github.com/synthetos/TinyG/wiki/TinyG-Configuration-for-Firmware-Version-0.97#pwm-group-pulse-width-modulations",
             "supported_platforms": [
